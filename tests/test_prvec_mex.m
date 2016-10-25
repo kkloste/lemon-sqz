@@ -5,6 +5,8 @@ fprintf('\n starting prvec_mex test \n');
 
 load ./data/senate_ccs;
 
+addpath ./util;
+
 n = size(A,1);
 
 epsil = 1e-4;

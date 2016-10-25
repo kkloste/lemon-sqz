@@ -9,6 +9,7 @@
 fprintf('\n starting MOVgrow test \n');
 
 load('./data/senate_ccs');
+addpath ./baseline_codes;
 
 n = size(A,1);
 d = full(sum(A,2));
@@ -29,7 +30,7 @@ lambda2 = lams(2);
 [V, lams] = eigs(A, spdiags(d, 0, n, n), 2, 'LA');
 lams = diag(lams);
 lambda22 = 1-lams(2);
-fprintf('Are our methods of computing lambda2 the same? Should be near 0.0:  %f \n', abs(lambda2 - lambda22) );
+fprintf('Confirm computation of lambda2; Should be near 0.0:  %f \n', abs(lambda2 - lambda22) );
 
 %% Compute MOV
 tic;
