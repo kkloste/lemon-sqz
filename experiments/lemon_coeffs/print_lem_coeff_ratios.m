@@ -30,5 +30,6 @@ group = [];
 
 for j=1:length(data_names),
     this_dataset_full = all_data{j};
-      fprintf(' %s \t %.4f  %.4f %.4f \n',  use_names{j} , mean(this_dataset_full) );
+      fprintf(' %s \t %.4f \t %.4f \t %.4f \t %.5f \n',  use_names{j} , mean(this_dataset_full),...
+      numel( find( max( abs( this_dataset_full(:,2:3))' )' < 0.05)  )/size(this_dataset_full, 1 )  );
 end
