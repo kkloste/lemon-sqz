@@ -5,6 +5,7 @@ function test_pprgrow_mex(filename,tol,alphat,debugflag)
 % This just checks the files are running and that the mex was compiled
 % correctly.
 %
+% Call from /  , not from /tests
 
 fprintf('\n starting pprgrow_mex test \n');
 

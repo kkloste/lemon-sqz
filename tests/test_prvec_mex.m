@@ -1,4 +1,5 @@
 % Testing prvec for computing approximate pagerank vectors
+% Call from /  , not from /tests
 
 fprintf('\n starting prvec_mex test \n');
 

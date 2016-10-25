@@ -1,3 +1,5 @@
+% Call from /  , not from /tests
+%
 % Demonstrate that the function local_fiedler.m produces a vector
 % satisfying all the constraints it is supposed to.
 %

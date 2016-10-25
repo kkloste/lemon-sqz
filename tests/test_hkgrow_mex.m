@@ -5,6 +5,8 @@ function [time_hk cond_hk bestset_hk hkvec setup_time] = test_hkgrow_mex(filenam
 % This just checks the files are running and that the mex was compiled
 % correctly.
 %
+% Call from /  , not from /tests
+%
 % Adapted from "Heat Kernel Based Community Detection"
 % [ Gleich & Kloster 2014 ]
 

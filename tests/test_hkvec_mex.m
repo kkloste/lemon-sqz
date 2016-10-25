@@ -1,4 +1,5 @@
 % Testing hkvec
+% Call from /  , not from /tests
 
 fprintf('\n starting hkvec_mex test \n');
 
