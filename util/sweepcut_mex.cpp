@@ -1,9 +1,14 @@
 /**
  * @file sweepcut_mex.cpp
  *
+ * Implements a sweepcut procedure that sweeps over nodes acccording to
+ * the ordering input in `node_ordering`. Options for terminating the sweep once
+ * the set reaches half the volume of A, as well as for starting and stopping
+ * the sweep at specified indices `sweepstart` and `sweepend`.
  *
  * USAGE:
- * [bestset,conductance,cut,volume] = sweepcut_mex(A,node_array)
+ * [bestset,conductance,cut,volume] = \
+ *        sweepcut_mex(A,node_ordering,halfvol_flag,sweepstart, sweepend, debugflag)
  *
  *
  * TO COMPILE:

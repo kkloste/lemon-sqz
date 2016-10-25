@@ -22,6 +22,8 @@ function [new_seedset, temp_subgraph, subgraph_ranking] = seed_augment(A, seed_s
 %
 % OUTPUTS
 %   new_seedset       - new seed set, from a diffusion on a subgraph
+%
+% Kyle Kloster and Yixuan Li, 2016
 
 % PARAMETERS
 p = inputParser;

@@ -11,11 +11,14 @@ function [output_subgraph, extracted_size] = subgraph_extraction(A, seed_set, va
   %   'alpha'       -- ppr (alpha) / hk (t) parameter; default 0.99
   %   'epsil'       -- accuracy used in ppr/hk, default 1e-4
   %   'deg_scale'   -- scale ppr vector by node degrees?, default true
-  %   'ppr_auto_tune' -- set to true to have alpha and epsil autoset; default false
+  %   'ppr_auto_tune' -- set to true to have alpha and epsil autoset; default true
   %
   % OUTPUTS
   %   output_subgraph     - set of nodes surrounding seed_set
   %   extracted_size      - size of subgraph extracted, before altering
+  %
+  % Kyle Kloster and Yixuan Li, 2016
+
 
   n = size(A,1);
 
@@ -26,7 +29,7 @@ function [output_subgraph, extracted_size] = subgraph_extraction(A, seed_set, va
   p.addOptional('alpha', 0.99);
   p.addOptional('epsil', 1e-4);
   p.addOptional('deg_scale', true, @islogical);
-  p.addOptional('ppr_auto_tune', false, @islogical);
+  p.addOptional('ppr_auto_tune', true, @islogical);
   p.parse(varargin{:});
 
   method_name = p.Results.method;

@@ -1,6 +1,17 @@
-function [cond cut vol inds] = cut_cond(A,set)
-% function [cond cut vol inds] = cut_cond(A,set)
-% input A must be symmetric and {0,1}-valued
+function [cond cut vol] = cut_cond(A,set)
+% function [cond cut vol] = cut_cond(A,set)
+%
+% INPUTS
+%  A    -- adjacency matrix, must be symmetric and {0,1}-valued
+%  set  -- set of nodes
+%
+% OUTPUTS
+%   cond  -- conductance of `set`
+%   cut   -- number of cut edges of `set`
+%   vol   -- edge volume of `set`
+%
+%
+
   inds = set;
 
   totvol = nnz(A);
