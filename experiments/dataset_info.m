@@ -1,16 +1,23 @@
 % get_dataset_properties
 %data_names = { 'cora', 'citeseer', 'senate', 'usps-3nn', 'usps-10nn', 'amazon', 'dblp', 'friendster', 'lj', 'orkut', 'youtube' };
-data_names = { 'cora', 'citeseer', 'usps3nn'};
+data_names = { 'cora', 'citeseer', 'senate', 'usps-3nn', 'usps-10nn', 'amazon', 'dblp', 'friendster', 'lj', 'orkut', 'youtube' };
+data_tags = [ 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0];
 
 dataset_stats = zeros( length(data_names), 3 ) ;
 comm_stats = zeros( length(data_names), 6 );
 
 % first do small datasets
 load_dir = '../data/';
-for which_dat=1:3,
+for which_dat=1:length(data_names),
     tic;
     fname = data_names{which_dat};
-    load([load_dir, fname, '_ccs.mat']);
+    full_fname = fname;
+    full_load_dir = '../data/data_big/';
+    if data_tags(which_dat) == 1,
+        full_fname = [fname, '_ccs'];
+        full_load_dir = '../data/';
+    end
+    load([full_load_dir, full_fname, '.mat']);
     dataset_stats(which_dat,1) = size(A,1);
     dataset_stats(which_dat,2) = nnz(A)/2;
     dataset_stats(which_dat,3) = nnz(A) / size(A,1);
