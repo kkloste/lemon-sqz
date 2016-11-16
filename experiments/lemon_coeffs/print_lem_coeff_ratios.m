@@ -12,11 +12,11 @@ for which_file=1:length(data_names),
 
     data = squeeze( which_coeffs( :, 1, 2, : ) );
 
-    datmax = max(data')';
-    max_inds = find( data(:,1) == datmax );
-    data = data(max_inds,:);
+    datmax = max(abs(data'))';
+%    max_inds = find( data(:,1) == datmax );
+%    data = data(max_inds,:);
 
-    datmax = max(data')';
+%    datmax = max(data')';
     data_normalized = spdiags( 1./datmax, 0, size(data,1), size(data,1) )*data;
 
     all_data{which_file} = data_normalized;
@@ -30,6 +30,7 @@ group = [];
 
 for j=1:length(data_names),
     this_dataset_full = all_data{j};
+    temp = find( this_dataset_full(:,1)./sum( abs(this_dataset_full)')' > 0.9 )';
       fprintf(' %s \t %.4f \t %.4f \t %.4f \t %.5f \n',  use_names{j} , mean(this_dataset_full),...
-      numel( find( max( abs( this_dataset_full(:,2:3))' )' < 0.05)  )/size(this_dataset_full, 1 )  );
+      numel( temp )/size(this_dataset_full, 1 )  );
 end
